@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PostsController extends Controller
 {
@@ -27,7 +28,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -38,7 +39,20 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title'=>'required|string|max:255',
+            'content'=>'required|string',
+        ]);
+
+        Post::create([
+            'title'=>$request->title,
+            'content'=>$request->content,
+            'user_id'=>Auth()->user()->id
+        ]);
+
+        Session::flash('success', 'Post enregistré');
+
+        return redirect()->route('posts.index');
     }
 
     /**
