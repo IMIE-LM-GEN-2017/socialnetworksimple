@@ -37,7 +37,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;<li><a href="{{route('posts.index')}}">Posts</a></li>
-                         <li><a href="{{route('posts.create')}}">Nouveau Posts</a></li>
+                         <li><a href="{{route('posts.create')}}">Nouveau Post</a></li>
+                         <li><a href="{{route('articles.index')}}">Articles</a></li>
+                         <li><a href="{{route('articles.create')}}">Nouvel Article</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -80,6 +82,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
