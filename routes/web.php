@@ -26,3 +26,7 @@ Route::get('/posts/show/{id}', 'PostsController@show')->name('posts.show');
 Route::get('/posts/edit/{id}', 'PostsController@edit')->name('posts.edit');
 Route::post('/posts/update/{id}', 'PostsController@update')->name('posts.update');
 Route::get('/posts/destroy/{id}', 'PostsController@destroy')->name('posts.destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
