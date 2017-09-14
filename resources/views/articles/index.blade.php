@@ -1,27 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Liste des articles</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>Liste des articles</h1></div>
+        <div class="panel-body">
+            @foreach($articles as $article)
+                <hr>
+                <tr>
+                    <td><h3>{{$article->title}}</h3></td>
 
-    @foreach($articles as $article)
-        <tr>
-            <td><h2>{{$article->title}}</h2></td>
-            <td>
-                <small>Ecrit par {{$article->user->username}}, le {{$article->created_at->diffForHumans()}}</small>
-            </td>
-            <td><p>{{$article->content}}</p></td>
-            <td class="td-actions text-right">
-                <a  href="{{action('ArticlesController@edit',$article->id)}}"
-                    type="button" rel="tooltip" title="Edit article"
-                    class="btn btn-info btn-simple btn-xs" data-original-title="Edit Article">
-                    <i class="fa fa-edit">Edit</i>
-                </a>
-
-                {{ Form::open([ 'method'  => 'delete', 'route' => [ 'posts.index', $article->id ] ])}}
-                {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
-                {{ Form::close() }}
-
-            </td>
-        </tr>
-    @endforeach
+                    <td><p>{{$article->content}}</p></td>
+                    <td>
+                        <a href="{!! route('articles.destroy', ['id'=>$article->id]) !!}" class="btn btn-danger">Delete</a>
+                    </td>
+                    <td>
+                        <a href="{!! route('articles.edit', ['id'=>$article->id]) !!}" class="btn btn-warning">Edit</a>
+                    </td>
+                    <td>
+                        <a href="{!! route('articles.show', ['id'=>$article->id]) !!}" class="btn btn-success">Show</a>
+                    </td>
+                </tr>
+            @endforeach
+        </div>
+    </div>
 @endsection

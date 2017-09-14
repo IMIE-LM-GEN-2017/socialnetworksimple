@@ -12,76 +12,118 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<div id="app">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+            </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;<li><a href="{{route('posts.index')}}">Posts</a></li>
-                         <li><a href="{{route('posts.create')}}">Nouveau Post</a></li>
-                         <li><a href="{{route('articles.index')}}">Articles</a></li>
-                         <li><a href="{{route('articles.create')}}">Nouvel Article</a></li>
-                    </ul>
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false">Posts <span class="caret"></span>
+                        </a>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ route('posts.index') }}">
+                                    Liste des posts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('posts.create') }}">
+                                    Nouveau post
+                                </a>
+                            </li>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false">Articles <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ route('articles.index') }}">
+                                    Liste des articles
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('articles.create') }}">
+                                    Nouvel article
+                                </a>
+                            </li>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                    @guest
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false">
                                     {{ Auth::user()->username }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
+                                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
                                 </ul>
                             </li>
-                        @endguest
-                    </ul>
-                </div>
+                            @endguest
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        @if(Session::has('success'))
-            <div class="alert alert-success">{{ Session::get('success') }}</div>
-        @endif
+    @if(Session::has('success'))
+        <div class="alert alert-success">{{ Session::get('success') }}</div>
+    @endif
 
-        @yield('content')
-    </div>
+    @yield('content')
+</div>
 
-    <!-- Scripts -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Scripts -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

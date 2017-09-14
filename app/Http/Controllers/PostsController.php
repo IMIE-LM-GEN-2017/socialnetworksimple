@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Post;
@@ -40,14 +41,14 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title'=>'required|string|max:255',
-            'content'=>'required|string',
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
         ]);
 
         Post::create([
-            'title'=>$request->title,
-            'content'=>$request->content,
-            'user_id'=>Auth()->user()->id
+            'title' => $request->title,
+            'content' => $request->content,
+            'user_id' => Auth()->user()->id
         ]);
 
         Session::flash('success', 'Post enregistré');
@@ -63,7 +64,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.show', ['post' => $post]);
     }
 
     /**
@@ -74,7 +76,11 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        {
+            $post = Post::findOrFail($id);
+
+            return view('posts.edit', ['post' => $post]);
+        }
     }
 
     /**
@@ -86,7 +92,20 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // validation des données
+        $this->validate($request, [
+            'title' => 'required|string',
+            'content' => 'required|string',
+        ]);
+        $post = Post::findOrFail($id);
+
+        if ($post->update($request->all())) {
+            Session::flash('message', 'Post mis à jour');
+            return redirect()->route('posts.index');
+        } else {
+            Session::flash('message', 'Une erreur est survenue lors de la mise à jour');
+            return redirect()->route('posts.edit', ['id' => $id]);
+        }
     }
 
     /**
@@ -97,6 +116,11 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect('posts')->with([
+            'flash_message' => 'Deleted',
+        ]);
     }
 }

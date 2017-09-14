@@ -1,16 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Les posts du forum</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>Les posts du forum</h1></div>
+        <div class="panel-body">
+            @foreach($posts as $post)
+                <hr>
+                <tr>
+                    <td><h3>{{$post->title}}</h3></td>
 
-    @foreach($posts as $post)
-        <tr>
-            <td><h2>{{$post->title}}</h2></td>
-            <td>
-                <small>Ecrit par {{$post->user->username}}, il y a {{$post->created_at->diffForHumans()}}</small>
-            </td>
-            <td><p>{{$post->content}}</p></td>
-        </tr>
-    @endforeach
-
+                    <td><p>{{$post->content}}</p></td>
+                    <td>
+                        <a href="{!! route('posts.destroy', ['id'=>$post->id]) !!}" class="btn btn-danger">Delete</a>
+                    </td>
+                    <td>
+                        <a href="{!! route('posts.edit', ['id'=>$post->id]) !!}" class="btn btn-warning">Edit</a>
+                    </td>
+                    <td>
+                        <a href="{!! route('posts.show', ['id'=>$post->id]) !!}" class="btn btn-success">Show</a>
+                    </td>
+                </tr>
+            @endforeach
+        </div>
+    </div>
 @endsection

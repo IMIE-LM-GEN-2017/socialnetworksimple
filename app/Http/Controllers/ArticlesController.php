@@ -63,7 +63,8 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::findOrFail($id);
+        return view('articles.show', ['article' => $article]);
     }
 
     /**
@@ -75,7 +76,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::findOrFail($id);
-        return view('articles.edit');
+        return view('articles.edit', ['article'=>$article]);
 
     }
 
@@ -88,8 +89,20 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Article::where('id', $id)->update($request->all());
-        return redirect('/articles');
+        // validation des données
+        $this->validate($request, [
+            'title' => 'required|string',
+            'content' => 'required|string',
+        ]);
+        $article = Article::findOrFail($id);
+
+        if ($article->update($request->all())) {
+            Session::flash('message', 'Article mis à jour');
+            return redirect()->route('articles.index');
+        } else {
+            Session::flash('message', 'Une erreur est survenue lors de la mise à jour');
+            return redirect()->route('articles.edit', ['id' => $id]);
+        }
     }
 
     /**
@@ -102,5 +115,9 @@ class ArticlesController extends Controller
     {
         $article = Article::findOrFail($id);
         $article->delete();
+
+        return redirect('articles')->with([
+            'flash_message' => 'Deleted',
+        ]);
     }
 }
