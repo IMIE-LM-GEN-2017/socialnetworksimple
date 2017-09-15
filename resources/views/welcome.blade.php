@@ -13,8 +13,12 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-image:url('https://img11.hostingpics.net/pics/14839647bg.jpg');
+                background-size: 60%;
+                background-color: #000;
+                background-repeat: no-repeat;
+                background-position: center;
+                color: #fff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -50,7 +54,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #FFF;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -79,16 +83,16 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
 
+                </div>
+<!--
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>
