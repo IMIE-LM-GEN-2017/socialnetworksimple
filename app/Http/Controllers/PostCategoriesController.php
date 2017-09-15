@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Answer;
+use App\PostCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class AnswersController extends Controller
+class PostCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,17 @@ class AnswersController extends Controller
      */
     public function index()
     {
-        //
+        return view('post_categories.index', ['list' => PostCategory::all()]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('post_categories.create');
     }
 
     /**
@@ -27,18 +37,30 @@ class AnswersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'post_id' => 'required|exists:posts,id',
-            'content' => 'required'
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
         ]);
 
         $data = $request->all();
-        $data['user_id'] = Auth()->user()->id;
 
-        Answer::create($data);
+        PostCategory::create($data);
 
-        Session::flash('successComment', 'Merci pour votre commentaire');
+        Session::flash('success', 'Catégorie créée');
 
-        return redirect()->route('posts.show', ['id' => $request->post_id]);
+        return redirect()->route('postsCat.index');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $cats = PostCategory::findOrFail($id);
+
+        return view('post_categories.show', ['category' => $cats]);
     }
 
     /**

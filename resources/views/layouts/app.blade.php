@@ -39,45 +39,14 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false">Posts <span class="caret"></span>
+                    <li>
+                        <a href="{{ route('articles.index') }}">
+                            Articles
                         </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ route('posts.index') }}">
-                                    Liste des posts
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('posts.create') }}">
-                                    Nouveau post
-                                </a>
-                            </li>
-                            </li>
-                        </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false">Articles <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ route('articles.index') }}">
-                                    Liste des articles
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('articles.create') }}">
-                                    Nouvel article
-                                </a>
-                            </li>
-                            </li>
-                        </ul>
-                    </li>
+                    <li><a href="{{route('postsCat.index')}}">Forum</a></li>
                 </ul>
+
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -85,39 +54,24 @@
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-expanded="false">
-                                    {{ Auth::user()->username }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                              style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                            @endguest
+                    @endguest
+                    @auth
+                        @component('components.menu_user')@endcomponent
+                        @component('components.menu_admin')@endcomponent
+                    @endauth
                 </ul>
             </div>
         </div>
     </nav>
 
-    @if(Session::has('success'))
-        <div class="alert alert-success">{{ Session::get('success') }}</div>
-    @endif
+    <div class="container-fluid">
 
-    @yield('content')
+        @if(Session::has('success'))
+            <div class="alert alert-success">{{ Session::get('success') }}</div>
+        @endif
+
+        @yield('content')
+    </div>
 </div>
 
 <!-- Scripts -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\PostCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -27,9 +28,11 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($catId = null)
     {
-        return view('posts.create');
+        $cats = PostCategory::all()->pluck('name', 'id');
+
+        return view('posts.create', ['categories' => $cats, 'catId' => $catId]);
     }
 
     /**
@@ -43,17 +46,17 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'post_category_id' => 'required|exists:post_categories,id'
         ]);
 
-        Post::create([
-            'title' => $request->title,
-            'content' => $request->content,
-            'user_id' => Auth()->user()->id
-        ]);
+        $data=$request->all();
+        $data['user_id'] = Auth()->user()->id;
+
+        Post::create($data);
 
         Session::flash('success', 'Post enregistré');
 
-        return redirect()->route('posts.index');
+        return redirect()->route('postsCat.show', ['id'=>$request->get('post_category_id')]);
     }
 
     /**
