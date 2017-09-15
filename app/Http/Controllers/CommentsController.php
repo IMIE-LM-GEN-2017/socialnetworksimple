@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Answer;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class AnswersController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,7 +39,7 @@ class AnswersController extends Controller
 
         Session::flash('successComment', 'Merci pour votre commentaire');
 
-        return redirect()->route('posts.show', ['id' => $request->post_id]);
+        return redirect()->route('articles.show', ['id' => $request->post_id]);
     }
 
     /**
