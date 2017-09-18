@@ -2,45 +2,25 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Answer;
-use App\Comment;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
-class CommentsController extends Controller
+class UsersController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the specified resource.
      *
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function profile()
     {
-        //
-    }
+        $id = Auth()->user()->id;
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'article_id' => 'required|exists:articles,id',
-            'content' => 'required'
-        ]);
+        $user = User::findOrFail($id);
 
-        $data = $request->all();
-        $data['user_id'] = Auth()->user()->id;
-
-        Comment::create($data);
-
-        Session::flash('successComment', 'Merci pour votre commentaire');
-
-        return redirect()->route('articles.show', ['id' => $request->article_id]);
+        return view('user.users.profile', ['user' => $user]);
     }
 
     /**

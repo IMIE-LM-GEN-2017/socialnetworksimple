@@ -15,7 +15,7 @@
     @endif
 
     @auth
-        <form action="{{route('comments.store')}}" method="post">
+        <form action="{{route('user.comments.store')}}" method="post">
             <textarea name="content" placeholder="Contenu"></textarea>
             <input type="hidden" name="article_id" value="{{$article->id}}">
             {{csrf_field()}}

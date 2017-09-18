@@ -45,6 +45,9 @@ Route::get('/forum/post/{id}', 'PostsController@show')->name('posts.show');
 Route::get('/events', 'EventsController@index')->name('events.index');
 Route::get('/events/show/{id}', 'EventsController@show')->name('events.show');
 
+Route::get('/users', 'UsersController@index')->name('users.index');
+Route::get('/users/{id}', 'UsersController@show')->name('users.show');
+
 /* --------------- ZONE ADMIN --------------- */
 Route::group(['prefix' => 'admin', 'middleware' => 'can:access-admin'], function () {
     /*
@@ -89,6 +92,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'can:access-admin'], function
     Route::get('/events', 'Admin\EventsController@index')->name('admin.events.index');
     Route::get('/events/show/{id}', 'Admin\EventsController@destroy')->name('admin.events.destroy');
     Route::get('/events/destroy/{id}', 'Admin\EventsController@destroy')->name('admin.events.destroy');
+
+    /*
+     * USERS
+     */
+    Route::get('/users', 'Admin\UsersController@index')->name('admin.users.index');
+    Route::get('/users/new', 'Admin\UsersController@create')->name('admin.users.create');
+    Route::post('/users/store', 'Admin\UsersController@store')->name('admin.users.store');
+    Route::get('/users/user/{id}', 'Admin\UsersController@show')->name('admin.users.show');
+    Route::get('/users/edit/{id}', 'Admin\UsersController@edit')->name('admin.users.edit');
+    Route::post('/users/update/{id}', 'Admin\UsersController@update')->name('admin.users.update');
+    Route::get('/users/destroy/{id}', 'Admin\UsersController@destroy')->name('admin.users.destroy');
 });
 
 
@@ -158,4 +172,12 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/events/edit/{id}', 'User\EventsController@edit')->name('user.events.edit');
     Route::post('/events/update/{id}', 'User\EventsController@update')->name('user.events.update');
     Route::get('/events/destroy/{id}', 'User\EventsController@destroy')->name('user.events.destroy');
+
+    /*
+     * USERS
+     */
+    Route::get('/profile', 'User\UsersController@profile')->name('user.profile');
+    Route::get('/profile/edit', 'User\UsersController@edit')->name('user.users.edit');
+    Route::post('/profile/update', 'User\UsersController@update')->name('user.users.update');
+    Route::get('/profile/destroy', 'User\UsersController@destroy')->name('user.users.destroy');
 });

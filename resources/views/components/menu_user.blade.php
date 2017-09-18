@@ -5,6 +5,7 @@
     </a>
 
     <ul class="dropdown-menu" role="menu">
+        <li><a href="{{route('user.profile')}}">Mon profil</a></li>
         <li class="dropdown-header">Forum</li>
         <li><a href="#">Mes posts</a></li>
         <li><a href="{{route('user.posts.create')}}">Nouveau post</a></li>

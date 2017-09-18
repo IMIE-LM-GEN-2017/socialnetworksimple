@@ -39,12 +39,10 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="{{ route('articles.index') }}">
-                            Articles
-                        </a>
-                    </li>
+                    <li><a href="{{ route('articles.index') }}">Articles</a></li>
                     <li><a href="{{route('postsCats.index')}}">Forum</a></li>
+                    <li><a href="{{route('users.index')}}">Auteurs</a></li>
+                    <li><a href="{{route('events.index')}}">Evènements</a></li>
                 </ul>
 
 
