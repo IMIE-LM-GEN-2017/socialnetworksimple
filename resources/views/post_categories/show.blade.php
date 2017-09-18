@@ -5,7 +5,7 @@
     <p>{{$category->description}}</p>
 
     @auth
-        <a href="{{route('post.createWithCategory', ['catId'=>$category->id])}}" class="btn btn-primary">Ecrire un post</a>
+        <a href="{{route('user.posts.createWithCategory', ['catId'=>$category->id])}}" class="btn btn-primary">Ecrire un post</a>
     @endauth
 
     @guest

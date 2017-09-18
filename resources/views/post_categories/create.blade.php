@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Nouvelle catégorie de forum</h1>
-    <form action="{{route('postsCat.store')}}" method="post">
+    <form action="{{route('postsCats.store')}}" method="post">
         {{csrf_field()}}
 
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

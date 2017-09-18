@@ -44,7 +44,7 @@
                             Articles
                         </a>
                     </li>
-                    <li><a href="{{route('postsCat.index')}}">Forum</a></li>
+                    <li><a href="{{route('postsCats.index')}}">Forum</a></li>
                 </ul>
 
 
@@ -57,8 +57,10 @@
                     @endguest
                     @auth
                         @component('components.menu_user')@endcomponent
-                        @component('components.menu_admin')@endcomponent
                     @endauth
+                    @if(Auth()->user()->role === 'admin')
+                        @component('components.menu_admin')@endcomponent
+                    @endif
                 </ul>
             </div>
         </div>

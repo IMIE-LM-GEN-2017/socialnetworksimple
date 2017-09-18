@@ -7,10 +7,10 @@
     <ul class="dropdown-menu" role="menu">
         <li class="dropdown-header">Forum</li>
         <li><a href="#">Mes posts</a></li>
-        <li><a href="{{route('posts.create')}}">Nouveau post</a></li>
+        <li><a href="{{route('user.posts.create')}}">Nouveau post</a></li>
         <li class="dropdown-header">Articles</li>
         <li><a href="#">Mes articles</a></li>
-        <li><a href="{{route('articles.create')}}">Nouvel article</a></li>
+        <li><a href="{{route('user.articles.create')}}">Nouvel article</a></li>
         <li class="dropdown-header">Autres</li>
         <li>
             <a href="{{ route('logout') }}"

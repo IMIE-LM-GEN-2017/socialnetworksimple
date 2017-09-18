@@ -15,7 +15,7 @@
     @endif
 
     @auth
-        <form action="{{route('answers.store')}}" method="post">
+        <form action="{{route('user.answers.store')}}" method="post">
             <textarea name="content" placeholder="Contenu"></textarea>
             <input type="hidden" name="post_id" value="{{$post->id}}">
             {{csrf_field()}}

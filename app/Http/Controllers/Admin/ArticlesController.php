@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use App\Post;
+use App\Article;
+use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class ArticlesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $list = Post::all();
+        $list = Article::all();
 
         // ...
 
-        return view('posts.index', ['posts' => $list]);
+        return view('admin.articles.index', ['articles' => $list]);
     }
 
     /**
@@ -29,8 +29,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = Post::findOrFail($id);
-        return view('posts.show', ['post' => $post]);
+        $article = Article::findOrFail($id);
+        return view('admin.articles.show', ['article' => $article]);
     }
 
     /**
@@ -41,10 +41,10 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
-        $post->delete();
+        $article = Article::findOrFail($id);
+        $article->delete();
 
-        return redirect('posts')->with([
+        return redirect('articles')->with([
             'flash_message' => 'Deleted',
         ]);
     }

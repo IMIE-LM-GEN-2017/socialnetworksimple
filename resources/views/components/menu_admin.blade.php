@@ -6,6 +6,6 @@
 
     <ul class="dropdown-menu" role="menu">
         <li class="dropdown-header">Forum</li>
-        <li><a href="{{route('postsCat.create') }}">Nouvelle catégorie</a></li>
+        <li><a href="{{route('admin.postsCats.create') }}">Nouvelle catégorie</a></li>
     </ul>
 </li>
