@@ -12,6 +12,9 @@
         <li class="dropdown-header">Articles</li>
         <li><a href="#">Mes articles</a></li>
         <li><a href="{{route('user.articles.create')}}">Nouvel article</a></li>
+        <li class="dropdown-header">Évènements</li>
+        <li><a href="#">Mes évènements</a></li>
+        <li><a href="{{route('user.events.create')}}">Nouvel évènement</a></li>
         <li class="dropdown-header">Autres</li>
         <li>
             <a href="{{ route('logout') }}"

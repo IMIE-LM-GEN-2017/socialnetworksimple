@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 use App\Event;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -44,11 +44,11 @@ class EventsController extends Controller
             'description' => 'required|string',
         ]);
 
-        $data=$request->all();
-
-        $data['user_id']=Auth()->user()->id;
-
-        Event::create($data);
+        Event::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'user_id' => Auth()->user()->id
+        ]);
 
         \Session::flash('success', 'Évènement enregistré');
 
