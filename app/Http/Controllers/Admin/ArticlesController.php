@@ -18,7 +18,7 @@ class ArticlesController extends Controller
 
         // ...
 
-        return view('admin.articles.index', ['articles' => $list]);
+        return view('_admin.articles.index', ['articles' => $list]);
     }
 
     /**
@@ -30,7 +30,7 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::findOrFail($id);
-        return view('admin.articles.show', ['article' => $article]);
+        return view('_admin.articles.show', ['article' => $article]);
     }
 
     /**

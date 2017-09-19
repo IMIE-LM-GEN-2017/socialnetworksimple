@@ -16,7 +16,7 @@ class PostCategoriesController extends Controller
      */
     public function index()
     {
-        return view('post_categories.index', ['list' => PostCategory::all()]);
+        return view('_user.post_categories.index', ['list' => PostCategory::all()]);
     }
 
     /**
@@ -26,7 +26,7 @@ class PostCategoriesController extends Controller
      */
     public function create()
     {
-        return view('post_categories.create');
+        return view('_user.post_categories.create');
     }
 
     /**
@@ -61,7 +61,7 @@ class PostCategoriesController extends Controller
     {
         $cats = PostCategory::findOrFail($id);
 
-        return view('post_categories.show', ['category' => $cats]);
+        return view('_user.post_categories.show', ['category' => $cats]);
     }
 
     /**

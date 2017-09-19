@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('_layouts.app')
 
 @section('content')
     <h1>Mon profil</h1>

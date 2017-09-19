@@ -18,7 +18,7 @@ class PostsController extends Controller
 
         // ...
 
-        return view('posts.index', ['posts' => $list]);
+        return view('_admin.posts.index', ['posts' => $list]);
     }
 
     /**
@@ -30,7 +30,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        return view('posts.show', ['post' => $post]);
+        return view('_admin.posts.show', ['post' => $post]);
     }
 
     /**

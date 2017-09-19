@@ -21,7 +21,7 @@ class PostsController extends Controller
 
         // ...
 
-        return view('posts.index', ['posts' => $list]);
+        return view('_user.posts.index', ['posts' => $list]);
     }
 
     /**
@@ -33,7 +33,7 @@ class PostsController extends Controller
     {
         $cats = PostCategory::all()->pluck('name', 'id');
 
-        return view('posts.create', ['categories' => $cats, 'catId' => $catId]);
+        return view('_user.posts.create', ['categories' => $cats, 'catId' => $catId]);
     }
 
     /**
@@ -69,7 +69,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        return view('posts.show', ['post' => $post]);
+        return view('_user.posts.show', ['post' => $post]);
     }
 
     /**
@@ -83,7 +83,7 @@ class PostsController extends Controller
         {
             $post = Post::findOrFail($id);
 
-            return view('posts.edit', ['post' => $post]);
+            return view('_user.posts.edit', ['post' => $post]);
         }
     }
 

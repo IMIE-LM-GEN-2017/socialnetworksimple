@@ -20,7 +20,7 @@ class UsersController extends Controller
 
         $user = User::findOrFail($id);
 
-        return view('user.users.profile', ['user' => $user]);
+        return view('_user.users.profile', ['user' => $user]);
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('_layouts.app')
 
 @section('content')
     <h1>Nouveau post</h1>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('_layouts.app')
 
 @section('content')
     <form action="{!! route('events.update', ['id'=>$event->id])!!}}" method="post">

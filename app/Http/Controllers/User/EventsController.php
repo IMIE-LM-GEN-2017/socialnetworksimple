@@ -18,7 +18,7 @@ class EventsController extends Controller
 
         // ...
 
-        return view('events.index', ['events' => $events]);
+        return view('_user.events.index', ['events' => $events]);
     }
 
     /**
@@ -28,7 +28,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        return view('_user.events.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class EventsController extends Controller
 
         \Session::flash('success', 'Évènement enregistré');
 
-        return redirect()->route('events.index');
+        return redirect()->route('user.events.index');
     }
 
     /**
@@ -64,7 +64,7 @@ class EventsController extends Controller
     public function show($id)
     {
         $event = Event::findOrFail($id);
-        return view('events.show', ['event' => $event]);
+        return view('_user.events.show', ['event' => $event]);
     }
 
     /**
@@ -76,7 +76,7 @@ class EventsController extends Controller
     public function edit($id)
     {
         $event = Event::findOrFail($id);
-        return view('events.edit', ['events' => $event]);
+        return view('_user.events.edit', ['events' => $event]);
 
     }
 
