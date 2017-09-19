@@ -7,10 +7,10 @@
     <ul class="dropdown-menu" role="menu">
         <li><a href="{{route('user.profile')}}">Mon profil</a></li>
         <li class="dropdown-header">Forum</li>
-        <li><a href="#">Mes posts</a></li>
+        <li><a href="{{route('user.posts.index')}}">Mes posts</a></li>
         <li><a href="{{route('user.posts.create')}}">Nouveau post</a></li>
         <li class="dropdown-header">Articles</li>
-        <li><a href="#">Mes articles</a></li>
+        <li><a href="{{route('user.articles.index')}}">Mes articles</a></li>
         <li><a href="{{route('user.articles.create')}}">Nouvel article</a></li>
         <li class="dropdown-header">Évènements</li>
         <li><a href="{{route('user.events.index')}}">Mes évènements</a></li>

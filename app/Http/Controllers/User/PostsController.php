@@ -17,11 +17,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $list = Post::all();
+        $posts = Post::all()->where('user_id', '=',Auth()->user()->id);
 
         // ...
 
-        return view('_user.posts.index', ['posts' => $list]);
+        return view('_user.posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -57,7 +57,7 @@ class PostsController extends Controller
 
         Session::flash('success', 'Post enregistré');
 
-        return redirect()->route('postsCat.show', ['id'=>$request->get('post_category_id')]);
+        return redirect()->route('postsCats.show', ['id'=>$request->get('post_category_id')]);
     }
 
     /**

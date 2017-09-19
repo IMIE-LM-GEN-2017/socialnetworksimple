@@ -15,11 +15,11 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $list = Article::all();
+        $articles = Article::all()->where('user_id', '=',Auth()->user()->id);
 
         // ...
 
-        return view('_user.articles.index', ['articles' => $list]);
+        return view('_user.articles.index', ['articles' => $articles]);
     }
 
     /**

@@ -134,6 +134,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     /*
     * FORUM
     */
+    Route::get('/forum', 'User\PostsController@index')->name('user.posts.index');
     Route::get('/forum/new', 'User\PostsController@create')->name('user.posts.create');
     Route::get('/forum/{catId}/new', 'User\PostsController@create')->name('user.posts.createWithCategory');
     Route::post('/forum/store', 'User\PostsController@store')->name('user.posts.store');

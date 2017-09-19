@@ -2,10 +2,9 @@
 
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading"><h1>Liste des articles</h1></div>
+        <div class="panel-heading"><h1>Mes articles</h1></div>
         <div class="panel-body">
             @foreach($articles as $article)
-                <hr>
                 <tr>
                     <td><h3>{{$article->title}}</h3></td>
 
