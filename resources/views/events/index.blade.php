@@ -7,17 +7,17 @@
             @foreach($events as $event)
                 <hr>
                 <tr>
-                    <td><h3>{{$event->title}}</h3></td>
+                    <td><h3>{{$event->name}}</h3></td>
 
-                    <td><p>{{$event->content}}</p></td>
+                    <td><p>{{$event->description}}</p></td>
                     <td>
-                        <a href="{!! route('user.articles.destroy', ['id'=>$event->id]) !!}" class="btn btn-danger">Delete</a>
+                        <a href="{!! route('user.events.destroy', ['id'=>$event->id]) !!}" class="btn btn-danger">Delete</a>
                     </td>
                     <td>
-                        <a href="{!! route('user.articles.edit', ['id'=>$event->id]) !!}" class="btn btn-warning">Edit</a>
+                        <a href="{!! route('user.events.edit', ['id'=>$event->id]) !!}" class="btn btn-warning">Edit</a>
                     </td>
                     <td>
-                        <a href="{!! route('user.articles.show', ['id'=>$event->id]) !!}" class="btn btn-success">Show</a>
+                        <a href="{!! route('user.events.show', ['id'=>$event->id]) !!}" class="btn btn-success">Show</a>
                     </td>
                 </tr>
             @endforeach

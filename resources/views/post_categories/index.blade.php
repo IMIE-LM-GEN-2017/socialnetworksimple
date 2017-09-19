@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Forum</h1>
-    Veuillez cliquer sur une catégorie
+    <button class="alert alert-info">Veuillez cliquer sur une catégorie ci-dessous</button>
 
     @foreach($list as $cat)
         <div class="well well-sm">

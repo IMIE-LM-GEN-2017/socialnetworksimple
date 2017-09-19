@@ -14,7 +14,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::all()->where('user_id', '=',Auth()->user()->id);
 
         // ...
 
