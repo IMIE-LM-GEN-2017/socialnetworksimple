@@ -56,9 +56,9 @@
                     @auth
                         @component('components.menu_user')@endcomponent
                     @endauth
-                    @if(Auth()->user()->role === 'admin')
+{{--                    @if(Auth()->user()->role === 'admin')
                         @component('components.menu_admin')@endcomponent
-                    @endif
+                    @endif--}}
                 </ul>
             </div>
         </div>

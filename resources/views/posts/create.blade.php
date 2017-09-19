@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Nouveau post</h1>
-    <form action="{{route('posts.store')}}" method="post">
+    <form action="{{route('user.posts.store')}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
             <label for="title">Title </label>

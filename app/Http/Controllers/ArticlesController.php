@@ -97,10 +97,10 @@ class ArticlesController extends Controller
         $article = Article::findOrFail($id);
 
         if ($article->update($request->all())) {
-            Session::flash('message', 'Article mis à jour');
+            \Session::flash('message', 'Article mis à jour');
             return redirect()->route('articles.index');
         } else {
-            Session::flash('message', 'Une erreur est survenue lors de la mise à jour');
+            \Session::flash('message', 'Une erreur est survenue lors de la mise à jour');
             return redirect()->route('articles.edit', ['id' => $id]);
         }
     }
