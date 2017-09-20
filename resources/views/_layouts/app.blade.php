@@ -57,11 +57,11 @@
                         <li><a href="{{ route('register') }}">Inscription</a></li>
                     @endguest
                     @auth
+                    @if(Auth()->user()->role === 'admin')
                         @component('_components.menu_user')@endcomponent
-                    @endauth
-{{--                    @if(Auth()->user()->role === 'admin')
                         @component('_components.menu_admin')@endcomponent
-                    @endif--}}
+                    @endif
+                    @endauth
                 </ul>
             </div>
         </div>
