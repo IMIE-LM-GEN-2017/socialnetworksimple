@@ -5,7 +5,6 @@
     <p>{{$article->content}}</p>
     Ecrit par {{$article->user->username}}, il y
     a {{$article->created_at->diffForHumans()}}
-
     <h2>Commentaires</h2>
 
     @if(session('successComment'))
@@ -19,8 +18,9 @@
             <textarea name="content" placeholder="Contenu"></textarea>
             <input type="hidden" name="article_id" value="{{$article->id}}">
             {{csrf_field()}}
-            <input type="submit" value="Commenter">
+
         </form>
+        <button type="submit" value="comment" class="btn btn-success">Commenter</button>
     @endauth
 
     @guest

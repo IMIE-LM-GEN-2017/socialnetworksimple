@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading"><h1>Liste des évènements</h1></div>
+        <div class="panel-heading"><h1>Mes évènements</h1></div>
         <div class="panel-body">
             @foreach($events as $event)
                 <hr>
@@ -11,13 +11,13 @@
 
                     <td><p>{{$event->description}}</p></td>
                     <td>
-                        <a href="{!! route('user.events.destroy', ['id'=>$event->id]) !!}" class="btn btn-danger">Delete</a>
+                        <a href="{!! route('user.events.destroy', ['id'=>$event->id]) !!}" class="btn btn-danger">Supprimer</a>
                     </td>
                     <td>
-                        <a href="{!! route('user.events.edit', ['id'=>$event->id]) !!}" class="btn btn-warning">Edit</a>
+                        <a href="{!! route('_user.events.edit', ['id'=>$event->id]) !!}" class="btn btn-warning">Editer</a>
                     </td>
                     <td>
-                        <a href="{!! route('user.events.show', ['id'=>$event->id]) !!}" class="btn btn-success">Show</a>
+                        <a href="{!! route('_user.events.show', ['id'=>$event->id]) !!}" class="btn btn-success">Afficher</a>
                     </td>
                 </tr>
             @endforeach

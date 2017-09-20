@@ -5,12 +5,12 @@
     <form action="{{route('user.events.store')}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
-            <label for="name">Name </label>
+            <label for="name">Nom </label>
             <input type="text" class="form-control" name="name">
         </div>
         <div class="form-group">
             <div class='input-group date' id='start_date'>
-                <label for="start_date">Date début</label>
+                <label for="start_date">Date de début</label>
                 <input type="text" class="form-control" name="start_date">
                 <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <div class='input-group date' id='end_date'>
-                <label for="end_date">Date fin </label>
+                <label for="end_date">Date de fin </label>
                 <input type="text" class="form-control" name="end_date">
                 <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>

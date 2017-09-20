@@ -166,11 +166,11 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     /*
      * EVENTS
      */
-    Route::get('/events', 'User\EventsController@index')->name('user.events.index');
-    Route::get('/events/new', 'User\EventsController@create')->name('user.events.create');
+    Route::get('/events', 'User\EventsController@index')->name('_user.events.index');
+    Route::get('/events/new', 'User\EventsController@create')->name('_user.events.create');
     Route::post('/events/store', 'User\EventsController@store')->name('user.events.store');
-    Route::get('/events/show/{id}', 'User\EventsController@show')->name('user.events.show');
-    Route::get('/events/edit/{id}', 'User\EventsController@edit')->name('user.events.edit');
+    Route::get('/events/show/{id}', 'User\EventsController@show')->name('_user.events.show');
+    Route::get('/events/edit/{id}', 'User\EventsController@edit')->name('_user.events.edit');
     Route::post('/events/update/{id}', 'User\EventsController@update')->name('user.events.update');
     Route::get('/events/destroy/{id}', 'User\EventsController@destroy')->name('user.events.destroy');
 

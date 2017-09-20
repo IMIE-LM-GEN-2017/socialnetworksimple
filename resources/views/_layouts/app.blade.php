@@ -44,7 +44,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('articles.index') }}">Articles</a></li>
                     <li><a href="{{route('postsCats.index')}}">Forum</a></li>
-                    <li><a href="{{route('users.index')}}">Membres</a></li>
+                    <li><a href="{{route('users.index')}}">Auteurs</a></li>
                     <li><a href="{{route('events.index')}}">Evènements</a></li>
                 </ul>
 
@@ -53,15 +53,15 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @guest
-                        <li><a href="{{ route('login') }}">Se connecter</a></li>
-                        <li><a href="{{ route('register') }}">S'enregistrer</a></li>
+                        <li><a href="{{ route('login') }}">Connexion</a></li>
+                        <li><a href="{{ route('register') }}">Inscription</a></li>
                     @endguest
                     @auth
                         @component('_components.menu_user')@endcomponent
                     @endauth
-                    @if(Auth()->user()->role === 'admin')
+{{--                    @if(Auth()->user()->role === 'admin')
                         @component('_components.menu_admin')@endcomponent
-                    @endif
+                    @endif--}}
                 </ul>
             </div>
         </div>

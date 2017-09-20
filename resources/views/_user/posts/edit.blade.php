@@ -11,6 +11,6 @@
             <label for="content">Contenu</label>
             <textarea name="content" class="form-control">{{$post->content}}</textarea>
         </div>
-        <button type="submit" value="edit" class="btn btn-success">Edit</button>
+        <button type="submit" value="edit" class="btn btn-success">Editer</button>
     </form>
 @endsection

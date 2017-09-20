@@ -10,13 +10,13 @@
 
                     <td><p>{{$post->content}}</p></td>
                     <td>
-                        <a href="{!! route('user.posts.destroy', ['id'=>$post->id]) !!}" class="btn btn-danger">Delete</a>
+                        <a href="{!! route('user.posts.destroy', ['id'=>$post->id]) !!}" class="btn btn-danger">Supprimer</a>
                     </td>
                     <td>
-                        <a href="{!! route('user.posts.edit', ['id'=>$post->id]) !!}" class="btn btn-warning">Edit</a>
+                        <a href="{!! route('user.posts.edit', ['id'=>$post->id]) !!}" class="btn btn-warning">Editer</a>
                     </td>
                     <td>
-                        <a href="{!! route('user.posts.show', ['id'=>$post->id]) !!}" class="btn btn-success">Show</a>
+                        <a href="{!! route('user.posts.show', ['id'=>$post->id]) !!}" class="btn btn-success">Afficher</a>
                     </td>
                 </tr>
             @endforeach

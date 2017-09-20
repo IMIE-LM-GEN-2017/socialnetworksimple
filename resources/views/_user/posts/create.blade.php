@@ -5,7 +5,7 @@
     <form action="{{route('user.posts.store')}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
-            <label for="title">Title </label>
+            <label for="title">Titre </label>
             <input type="text" class="form-control" name="title">
         </div>
         <div class="form-group">
