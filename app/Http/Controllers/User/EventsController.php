@@ -52,7 +52,7 @@ class EventsController extends Controller
 
         \Session::flash('success', 'Évènement enregistré');
 
-        return redirect()->route('user.events.index');
+        return redirect()->route('_user.events.index');
     }
 
     /**
@@ -76,7 +76,7 @@ class EventsController extends Controller
     public function edit($id)
     {
         $event = Event::findOrFail($id);
-        return view('_user.events.edit', ['events' => $event]);
+        return view('_user.events.edit', ['event' => $event]);
 
     }
 
@@ -98,10 +98,10 @@ class EventsController extends Controller
 
         if ($event->update($request->all())) {
             \Session::flash('message', 'Évènement mis à jour');
-            return redirect()->route('events.index');
+            return redirect()->route('_user.events.index');
         } else {
             \Session::flash('message', 'Une erreur est survenue lors de la mise à jour');
-            return redirect()->route('events.edit', ['id' => $id]);
+            return redirect()->route('_user.events.edit', ['id' => $id]);
         }
     }
 

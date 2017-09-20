@@ -10,6 +10,7 @@
                     <td><h3>{{$event->name}}</h3></td>
 
                     <td><p>{{$event->description}}</p></td>
+                    <p>Écrit par {{$event->user->username}} il y a {{$event->created_at->diffForHumans()}}</p>
                     <td>
                         <a href="{!! route('user.events.destroy', ['id'=>$event->id]) !!}" class="btn btn-danger">Delete</a>
                     </td>
