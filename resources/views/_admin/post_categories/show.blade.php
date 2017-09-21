@@ -5,7 +5,7 @@
     <p>{{$category->description}}</p>
 
     @auth
-        <a href="{{route('user.posts.createWithCategory', ['catId'=>$category->id])}}" class="btn btn-primary">Ecrire un post</a>
+        <a href="{{route('admin.posts.createWithCategory', ['catId'=>$category->id])}}" class="btn btn-primary">Ecrire un post</a>
     @endauth
 
     @guest
@@ -24,7 +24,7 @@
         <tbody>
         @foreach($category->posts as $post)
             <tr>
-                <td><a href="{{route('posts.show', ['id'=>$post->id])}}">{{$post->title}}</a></td>
+                <td><a href="{{route('admin.postsCats.show', ['id'=>$post->id])}}">{{$post->title}}</a></td>
                 <td>{{$post->user->username}}</td>
                 <td>{{$post->answers->count()}}</td>
                 <td>{{$post->created_at->diffForHumans(now())}}</td>

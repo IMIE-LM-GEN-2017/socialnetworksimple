@@ -57,6 +57,7 @@
                         <li><a href="{{ route('register') }}">Inscription</a></li>
                     @endguest
                     @auth
+                    @component('_components.menu_user')@endcomponent
                     @if(Auth()->user()->role === 'admin')
                         @component('_components.menu_user')@endcomponent
                         @component('_components.menu_admin')@endcomponent

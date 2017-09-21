@@ -1,7 +1,7 @@
 @extends('_layouts.app')
 
 @section('content')
-    <form action="{!! route('posts.update', ['id'=>$post->id])!!}}" method="post">
+    <form action="{!! route('admin.postsCats.update', ['id'=>$post->id])!!}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
             <label for="name">Title </label>

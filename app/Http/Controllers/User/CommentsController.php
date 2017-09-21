@@ -49,7 +49,7 @@ class CommentsController extends Controller
 
         Session::flash('successComment', 'Merci pour votre commentaire');
 
-        return redirect()->route('articles.show', ['id' => $request->article_id]);
+        return redirect()->route('user.articles.show', ['id' => $request->article_id]);
     }
 
     /**
