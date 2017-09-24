@@ -13,11 +13,10 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-image:url('https://img11.hostingpics.net/pics/14839647bg.jpg');
-                background-size: 60%;
-                background-color: #000;
+                background-image: url('https://img11.hostingpics.net/pics/44898739bg.png');
+                background-size: 100%;
                 background-repeat: no-repeat;
-                background-position: center;
+                background-position: cover;
                 color: #fff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;

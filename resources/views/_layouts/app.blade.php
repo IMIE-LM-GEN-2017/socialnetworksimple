@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>School Social Network</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -35,7 +35,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    SSNetwork
                 </a>
             </div>
 
@@ -57,7 +57,9 @@
                         <li><a href="{{ route('register') }}">Inscription</a></li>
                     @endguest
                     @auth
-                    @component('_components.menu_user')@endcomponent
+                    @if(Auth()->user()->role === 'user')
+                        @component('_components.menu_user')@endcomponent
+                    @endif
                     @if(Auth()->user()->role === 'admin')
                         @component('_components.menu_user')@endcomponent
                         @component('_components.menu_admin')@endcomponent

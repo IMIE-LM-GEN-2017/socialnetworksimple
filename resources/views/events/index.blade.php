@@ -12,6 +12,12 @@
                     <td><p>{{$event->description}}</p></td>
                     <p>Écrit par {{$event->user->username}} il y a {{$event->created_at->diffForHumans()}}</p>
                     <td>
+                        <a href="{!! route('user.events.destroy', ['id'=>$event->id]) !!}" class="btn btn-danger">Supprimer</a>
+                    </td>
+                    <td>
+                        <a href="{!! route('_user.events.edit', ['id'=>$event->id]) !!}" class="btn btn-warning">Editer</a>
+                    </td>
+                    <td>
                         <a href="{!! route('_user.events.show', ['id'=>$event->id]) !!}" class="btn btn-success">Voir</a>
                     </td>
                 </tr>
